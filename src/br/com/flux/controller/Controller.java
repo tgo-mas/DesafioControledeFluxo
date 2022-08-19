@@ -98,5 +98,4 @@ public class Controller {
 			this.cands.add(new Candidatura(cand));
 		}
 	}
-	
 }

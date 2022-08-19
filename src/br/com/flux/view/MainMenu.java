@@ -59,9 +59,11 @@ public class MainMenu extends JFrame {
 			FileReader arq = new FileReader("data/dados.txt");
 			BufferedReader read = new BufferedReader(arq);
 			String candsString = read.readLine();
-			sys.lerCandidatos(candsString);
-		}catch(Exception err) {
 			
+			sys.lerCandidatos(candsString);
+			arq.close();
+		}catch(Exception err) {
+			JOptionPane.showMessageDialog(null, err.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
 		}
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -125,16 +127,19 @@ public class MainMenu extends JFrame {
 		
 		JButton btnSave = new JButton("Salvar e sair");
 		btnSave.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
 				
 				try{
 					FileWriter arq = new FileWriter("data/dados.txt");
 					PrintWriter dados = new PrintWriter(arq);
 					sys.salvarCandidatos(dados);
+					arq.close();
 				}catch(Exception err) {
 					JOptionPane.showMessageDialog(null, err.getMessage());
+				}finally {
+					System.exit(NORMAL);
 				}
-				
 			}
 		});
 		btnSave.setVerticalAlignment(SwingConstants.BOTTOM);

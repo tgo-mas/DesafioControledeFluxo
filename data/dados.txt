@@ -1,1 +1,1 @@
-Thomas,1212.0,false;Riely,1522.0,false;Leo,1922.0,false;Predo,1922.0,false;Li,2922.0,false;Juca,2922.0,false;
+Thomas,1212.0,true;Riely,1522.0,true;Leo,1922.0,true;Predo,1922.0,true;Li,2922.0,false;Juca,2922.0,false;jesus,1212.0,true;
