@@ -1,5 +1,6 @@
 package br.com.flux.controller;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -29,9 +30,10 @@ public class Controller {
 		return ThreadLocalRandom.current().nextDouble(1800, 2200);
 	}
 	
-	public void addCandidato(String nome, double sal) throws Exception {
+	public void addCandidato(String nome, double salario) throws Exception {
+		Candidatura cand = new Candidatura(nome, salario);
 		try {
-			this.cands.add(new Candidatura(nome, sal));
+			this.cands.add(cand);
 		}catch(Exception e) {
 			throw e;
 		}
@@ -74,6 +76,26 @@ public class Controller {
 					}
 				}
 			}
+		}
+	}
+	
+	public void salvarCandidatos(PrintWriter writer) {
+		String str = "";
+		
+		for(Candidatura cand:this.cands) {
+			str += cand.toString();
+			str += ";";
+		}
+		
+		writer.printf(str);
+		writer.close();
+	}
+	
+	public void lerCandidatos(String candsStr) {
+		String[] candes = candsStr.split(";");
+		
+		for(String cand:candes) {
+			this.cands.add(new Candidatura(cand));
 		}
 	}
 	

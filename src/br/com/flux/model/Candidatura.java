@@ -2,6 +2,8 @@ package br.com.flux.model;
 
 import java.util.Random;
 
+import javax.swing.JOptionPane;
+
 public class Candidatura {
 
 	private String nome;
@@ -12,6 +14,17 @@ public class Candidatura {
 		this.nome = nom;
 		this.salario = sal;
 		this.valida = false;
+	}
+	
+	public Candidatura(String candStr) {
+		try{
+			String[] props = candStr.split(",");
+			nome = props[0];
+			salario = Double.parseDouble(props[1]);
+			valida = Boolean.parseBoolean(props[2]);
+		}catch(Exception e) {
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+		}
 	}
 
 	public String getNome() {
@@ -46,6 +59,10 @@ public class Candidatura {
 	
 	public boolean contatar() {
 		return new Random().nextInt(3) == 1;
+	}
+	
+	public String toString() {
+		return this.nome + "," + this.salario + "," + this.valida;
 	}
 	
 }
