@@ -36,10 +36,10 @@ public class Candidatura {
 
 	public boolean validar(double salBase) {
 		if(salBase > this.salario) {
-			this.valida = false;
+			this.valida = true;
 			return valida;
 		}else {
-			this.valida = true;
+			this.valida = false;
 			return valida;
 		}
 	}

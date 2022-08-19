@@ -29,12 +29,9 @@ public class Controller {
 		return ThreadLocalRandom.current().nextDouble(1800, 2200);
 	}
 	
-	public void addCandidatos() throws Exception {
+	public void addCandidato(String nome, double sal) throws Exception {
 		try {
-			this.cands.add(new Candidatura("Rafael", random()));
-			this.cands.add(new Candidatura("Marcela", random()));
-			this.cands.add(new Candidatura("Thomas", random()));
-			this.cands.add(new Candidatura("Vania", random()));
+			this.cands.add(new Candidatura(nome, sal));
 		}catch(Exception e) {
 			throw e;
 		}

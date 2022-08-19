@@ -25,6 +25,8 @@ public class MainMenu extends JFrame {
 
 	private JPanel contentPane;
 
+	protected Controller sys;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -45,9 +47,7 @@ public class MainMenu extends JFrame {
 	 * Create the frame.
 	 */
 	public MainMenu() {
-		
-
-		Controller sys = new Controller();
+		this.sys = new Controller();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 424, 553);
@@ -71,12 +71,8 @@ public class MainMenu extends JFrame {
 		JButton btnAdd = new JButton("Adicionar Candidatos");
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try{
-					sys.addCandidatos();
-					JOptionPane.showMessageDialog(null, "Sucesso!", "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
-				}catch(Exception erro) {
-					JOptionPane.showMessageDialog(null, "Falha ao Adicionar!", "Falha", JOptionPane.ERROR_MESSAGE);
-				}
+				ViewCadastro telaCad = new ViewCadastro(sys);
+				telaCad.setVisible(true);
 			}
 		});
 		
