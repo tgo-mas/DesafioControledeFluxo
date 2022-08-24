@@ -1,7 +1,6 @@
 package br.com.flux.view;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -19,6 +18,7 @@ import javax.swing.border.EmptyBorder;
 
 import br.com.flux.controller.Controller;
 
+@SuppressWarnings("serial")
 public class ViewCadastro extends JFrame {
 
 	private JPanel contentPane;

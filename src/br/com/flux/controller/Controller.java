@@ -2,7 +2,6 @@ package br.com.flux.controller;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.concurrent.ThreadLocalRandom;
 
 import javax.swing.JOptionPane;
 
@@ -24,10 +23,6 @@ public class Controller {
 
 	public void setCands(ArrayList<Candidatura> cands) {
 		this.cands = cands;
-	}
-	
-	private double random() {
-		return ThreadLocalRandom.current().nextDouble(1800, 2200);
 	}
 	
 	public void addCandidato(String nome, double salario) throws Exception {
@@ -99,11 +94,25 @@ public class Controller {
 		}
 	}
 	
+	public void apagarCandidato(Candidatura cand){
+		cands.remove(cand);
+	}
+	
+	public void apagarCandidatos(ArrayList<Candidatura> candes) {
+		for(int i = 0; i < cands.size(); i++) {
+			for(Candidatura candAux:candes) {
+				if(candAux.getNome().equals(cands.get(i).getNome())) {
+					cands.remove(i);
+				}
+			}
+		}
+	}
+	
 	public Object[][] toObject(){
-		Object[][] arr = new Object[cands.size()][3];
+		Object[][] arr = new Object[cands.size()][4];
 		
 		for(int i = 0; i < cands.size(); i++) {
-			arr[i] = new Object[]{cands.get(i).getNome(), cands.get(i).getSalario(), cands.get(i).isValida()};
+			arr[i] = new Object[]{false,cands.get(i).getNome(), cands.get(i).getSalario(), cands.get(i).isValida()};
 		}
 		
 		return arr;

@@ -1,7 +1,6 @@
 package br.com.flux.view;
 
 import java.awt.EventQueue;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -10,8 +9,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -21,10 +18,8 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
-
 import br.com.flux.controller.Contador;
 import br.com.flux.controller.Controller;
-import br.com.flux.model.Candidatura;
 import br.com.flux.model.ParametrosInvalidosException;
 
 @SuppressWarnings("serial")
@@ -74,7 +69,6 @@ public class MainMenu extends JFrame {
 		contentPane.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		JPanel panel = new JPanel();
-		FlowLayout flowLayout = (FlowLayout) panel.getLayout();
 		contentPane.add(panel);
 		
 		JButton btnValidar = new JButton("Validar Candidaturas");
@@ -146,8 +140,8 @@ public class MainMenu extends JFrame {
 		btnGerenciar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				@SuppressWarnings("unused")
 				ViewGerenciar telaGer = new ViewGerenciar(sys);
-				
 			}
 		});
 		btnGerenciar.setFont(new Font("Tahoma", Font.PLAIN, 20));

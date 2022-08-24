@@ -16,6 +16,12 @@ public class Candidatura {
 		this.valida = false;
 	}
 	
+	public Candidatura(String nom, double sal, boolean val) {
+		this.nome = nom;
+		this.salario = sal;
+		this.valida = val;
+	}
+	
 	public Candidatura(String candStr) {
 		try{
 			String[] props = candStr.split(",");

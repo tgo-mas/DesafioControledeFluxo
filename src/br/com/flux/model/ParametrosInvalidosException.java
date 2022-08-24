@@ -1,5 +1,6 @@
 package br.com.flux.model;
 
+@SuppressWarnings("serial")
 public class ParametrosInvalidosException extends Exception{
 
 	private String message;
