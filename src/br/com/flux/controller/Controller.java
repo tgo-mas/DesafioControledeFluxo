@@ -98,4 +98,15 @@ public class Controller {
 			this.cands.add(new Candidatura(cand));
 		}
 	}
+	
+	public Object[][] toObject(){
+		Object[][] arr = new Object[cands.size()][3];
+		
+		for(int i = 0; i < cands.size(); i++) {
+			arr[i] = new Object[]{cands.get(i).getNome(), cands.get(i).getSalario(), cands.get(i).isValida()};
+		}
+		
+		return arr;
+	}
+	
 }

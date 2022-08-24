@@ -127,7 +127,6 @@ public class MainMenu extends JFrame {
 		
 		JButton btnSave = new JButton("Salvar e sair");
 		btnSave.addActionListener(new ActionListener() {
-			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
 				
 				try{
@@ -142,6 +141,17 @@ public class MainMenu extends JFrame {
 				}
 			}
 		});
+		
+		JButton btnGerenciar = new JButton("Gerenciar Candidatos");
+		btnGerenciar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				ViewGerenciar telaGer = new ViewGerenciar(sys);
+				
+			}
+		});
+		btnGerenciar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		panel.add(btnGerenciar);
 		btnSave.setVerticalAlignment(SwingConstants.BOTTOM);
 		btnSave.setHorizontalAlignment(SwingConstants.TRAILING);
 		btnSave.setFont(new Font("Tahoma", Font.PLAIN, 20));
