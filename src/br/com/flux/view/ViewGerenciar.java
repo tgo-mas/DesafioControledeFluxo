@@ -4,11 +4,14 @@ import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
@@ -88,6 +91,28 @@ public class ViewGerenciar extends JFrame {
 		btnRemove.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnRemove.setBounds(203, 226, 203, 40);
 		contentPane.add(btnRemove);
+		
+		JButton btnAdd = new JButton("Cadastrar candidato");
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ViewCadastro telaCad = new ViewCadastro(sys);
+				telaCad.setVisible(true);
+			}
+		});
+		btnAdd.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnAdd.setBounds(203, 274, 203, 40);
+		contentPane.add(btnAdd);
+		
+		JButton btnAtt = new JButton("Atualizar");
+		btnAtt.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Object[][] modelTable = sys.toObject();
+				atualizarTabela(modelTable, columnNames);
+			}
+		});
+		btnAtt.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnAtt.setBounds(27, 226, 106, 22);
+		contentPane.add(btnAtt);
 		
 		this.setVisible(true);
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);

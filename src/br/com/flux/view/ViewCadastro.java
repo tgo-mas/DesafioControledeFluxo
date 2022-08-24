@@ -84,6 +84,8 @@ public class ViewCadastro extends JFrame {
 					sys.addCandidato(nome, sal);
 				}catch(Exception err) {
 					JOptionPane.showMessageDialog(null, "Erro no registro de candidato!", "Falha", JOptionPane.ERROR_MESSAGE);
+				}finally {
+					close();
 				}
 				
 			}

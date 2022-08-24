@@ -80,20 +80,21 @@ public class MainMenu extends JFrame {
 			}
 		});
 		
-		JButton btnAdd = new JButton("Adicionar Candidatos");
-		btnAdd.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				ViewCadastro telaCad = new ViewCadastro(sys);
-				telaCad.setVisible(true);
-			}
-		});
-		
 		JLabel lblNewLabel = new JLabel("    Processys    ");
 		panel.add(lblNewLabel);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 40));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		btnAdd.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		panel.add(btnAdd);
+		
+		JButton btnGerenciar = new JButton("Gerenciar Candidatos");
+		btnGerenciar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				@SuppressWarnings("unused")
+				ViewGerenciar telaGer = new ViewGerenciar(sys);
+			}
+		});
+		btnGerenciar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		panel.add(btnGerenciar);
 		btnValidar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		panel.add(btnValidar);
 		
@@ -135,17 +136,6 @@ public class MainMenu extends JFrame {
 				}
 			}
 		});
-		
-		JButton btnGerenciar = new JButton("Gerenciar Candidatos");
-		btnGerenciar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				@SuppressWarnings("unused")
-				ViewGerenciar telaGer = new ViewGerenciar(sys);
-			}
-		});
-		btnGerenciar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		panel.add(btnGerenciar);
 		btnSave.setVerticalAlignment(SwingConstants.BOTTOM);
 		btnSave.setHorizontalAlignment(SwingConstants.TRAILING);
 		btnSave.setFont(new Font("Tahoma", Font.PLAIN, 20));
